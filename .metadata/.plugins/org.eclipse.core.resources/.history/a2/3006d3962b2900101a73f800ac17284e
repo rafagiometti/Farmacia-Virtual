@@ -1,0 +1,69 @@
+package farmaciaVirtual;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Menu {
+
+	public static void main(String[] args) {
+		Scanner leia = new Scanner(System.in);
+		
+		int resposta = 1;
+		
+		// Criando ArrayLists para armazenar os produtos
+        ArrayList<Medicamento> listaMedicamentos = new ArrayList<>();
+        ArrayList<Cosmetico> listaCosmeticos = new ArrayList<>();
+		
+		while(resposta != 0) {
+			
+		System.out.println("========== Menu Principal ======");
+		System.out.println("1 - Cadastrar Medicamento: ");
+		System.out.println("2 - Cadastrar Cosmético: ");
+		System.out.println("3 - Listar todos os produtos");
+		System.out.println("4 - Consultar produtos por ID: ");
+		System.out.println("5 - Atualizar produto");
+		System.out.println("6 - Deletar produto");
+		System.out.println("0 - Sair");
+		System.out.println("=================================");
+		resposta = leia.nextInt();	
+	
+		switch(resposta) {
+			case 1:
+				System.out.println("Digite o nome do medicamento:");
+				String nomeMedicamento = leia.nextLine();
+				System.out.println("Digite o ID do medicamento:");
+				int idMedicamento = leia.nextInt();
+				System.out.println("Digite o valor do medicamento: ");
+				float precoMedicamento = leia.nextFloat();
+				System.out.println("É genérico (sim ou não)? ");
+				String generico = leia.next();
+				break;
+			case 2:
+				System.out.println("Digite o nome do cosmetico:");
+				String nomeCosmetico = leia.nextLine();
+				System.out.println("Digite o ID do cosmético:");
+				int idCosmetico = leia.nextInt();
+				System.out.println("Digite o valor do cosmético: ");
+				float precoCosmetico = leia.nextFloat();
+				System.out.println("Digite a fragrância: ");
+				String fragrancia = leia.next();
+				break;
+			case 3:
+				System.out.println("Listando todos os produtos:");
+                System.out.println("======== Cosméticos ========");
+                for (Cosmetico c : listaCosmeticos) {
+                    c.visualizar();
+                }
+                System.out.println("======= Medicamentos ======");
+                for (Medicamento m : listaMedicamentos) {
+                    m.visualizar();
+                }
+                break;
+				
+				
+		}
+	}
+		leia.close();
+	}
+
+}

@@ -1,0 +1,49 @@
+package model;
+
+public abstract class Produto {
+	private String nome;
+	private int id;
+	private float preco;
+	
+	//Um construtor é um método especial utilizado para inicializar um objeto no momento em que ele é criado.
+
+	public void Produto (String nome, int id, float preco) {
+		//inicializando os produtos, passando pra "ele mesmo"
+		this.nome = nome;
+		this.id = id;
+		this.preco = preco;
+	}
+	
+	//getter é o método que retorna o valor de um atributo a um objeto
+	//setter é o método que modifica o valor de um atributo de objeto
+	
+	public int getId() {
+		return id;
+	}
+	
+	public void setId() {
+		this.id = id;
+	}
+	
+	public String getNome() {
+		return nome;
+	}
+	
+	public void setString() {
+		this.nome = nome
+	}
+	
+	public float getPreco() {
+		return preco;
+	}
+	
+	public void setPreco() {
+		this.preco = preco;
+	}
+	
+	public void visualizar() {
+		System.out.println("Nome: " + nome);
+		System.out.println("ID: " + id);
+		System.out.println("Preço: " + preco);
+	}
+}

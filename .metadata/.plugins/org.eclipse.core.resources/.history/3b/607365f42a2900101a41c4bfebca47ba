@@ -1,0 +1,28 @@
+package farmaciaVirtual;
+
+import java.util.Scanner;
+
+public class Menu {
+
+	public static void main(String[] args) {
+		Scanner leia = new Scanner(System.in);
+		
+		int resposta = 1;
+		
+		while(resposta != 0) {
+			
+		System.out.println("========== Menu Principal ======");
+		System.out.println("1 - Cadastrar produto");
+		System.out.println("2 - Listar todos os produtos");
+		System.out.println("3 - Consultar produtos por ID: ");
+		System.out.println("4 - Atualizar produto");
+		System.out.println("5 - Deletar produto");
+		System.out.println("0 - Sair");
+		System.out.println("=================================");
+		resposta = leia.nextInt();
+		
+		leia.close();
+	}
+	}
+
+}

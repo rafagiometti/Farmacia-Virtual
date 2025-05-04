@@ -1,0 +1,3 @@
+INDEX VERSION 1.134+C:\Users\USER\Desktop\Farmacia Virtual\.metadata\.plugins\org.eclipse.jdt.core
+3152130458.index
+1240303783.index

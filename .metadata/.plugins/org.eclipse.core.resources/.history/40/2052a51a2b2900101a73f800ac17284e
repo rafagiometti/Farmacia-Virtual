@@ -1,0 +1,25 @@
+package model;
+
+public class Medicamento extends Produto {
+	private String generico;
+	
+	public Medicamento (String nome, int id, float preco, String generico) {
+		super(nome, id, preco);
+		this.generico = generico;	
+	}
+	
+	public String getgenerico() {
+		return generico;
+	}
+	
+	public void setTarja(String generico) {
+		this.generico = generico;
+	}
+	
+    @Override
+    public void visualizar() {
+        super.visualizar(); // chama o método da classe Produto
+        System.out.println("Genérico: " + generico); // mostra 
+    }
+
+}

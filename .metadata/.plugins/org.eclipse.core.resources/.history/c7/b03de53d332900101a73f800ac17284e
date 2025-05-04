@@ -1,0 +1,95 @@
+package farmaciaVirtual;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+import farmaciaVirtual.model.Cosmetico;
+import farmaciaVirtual.model.Medicamento;
+
+public class Menu {
+
+	public static void main(String[] args) {
+		Scanner leia = new Scanner(System.in);
+		
+		int resposta = 1;
+		
+		// Criando ArrayLists para armazenar os produtos
+        ArrayList<Medicamento> listaMedicamentos = new ArrayList<>();
+        ArrayList<Cosmetico> listaCosmeticos = new ArrayList<>();
+		
+		while(resposta != 0) {
+			
+			System.out.println("========== Menu Principal ======");
+			System.out.println("1 - Cadastrar Medicamento");
+			System.out.println("2 - Cadastrar Cosmético");
+			System.out.println("3 - Listar todos os produtos");
+			System.out.println("4 - Consultar produto por ID");
+			System.out.println("5 - Atualizar produto");
+			System.out.println("6 - Deletar produto");
+			System.out.println("0 - Sair");
+			System.out.println("=================================");
+			resposta = leia.nextInt();	
+			leia.nextLine();  // Limpar o buffer do Scanner após a leitura do número
+			
+			switch(resposta) {
+				case 1:
+					// Cadastrar Medicamento
+					System.out.println("Digite o nome do medicamento:");
+					String nomeMedicamento = leia.nextLine();
+					System.out.println("Digite o ID do medicamento:");
+					int idMedicamento = leia.nextInt();
+					System.out.println("Digite o valor do medicamento:");
+					float precoMedicamento = leia.nextFloat();
+					leia.nextLine();  // Limpar o buffer
+					System.out.println("É genérico (sim ou não)?");
+					String generico = leia.nextLine();
+					
+					// Criando o objeto Medicamento e adicionando na lista
+					Medicamento medicamento = new Medicamento(nomeMedicamento, idMedicamento, precoMedicamento, generico);
+					listaMedicamentos.add(medicamento);
+					System.out.println("Medicamento cadastrado com sucesso!");
+					break;
+					
+				case 2:
+					// Cadastrar Cosmético
+					System.out.println("Digite o nome do cosmético:");
+					String nomeCosmetico = leia.nextLine();
+					System.out.println("Digite o ID do cosmético:");
+					int idCosmetico = leia.nextInt();
+					System.out.println("Digite o valor do cosmético:");
+					float precoCosmetico = leia.nextFloat();
+					leia.nextLine();  // Limpar o buffer
+					System.out.println("Digite a fragrância:");
+					String fragrancia = leia.nextLine();
+					
+					// Criando o objeto Cosmético e adicionando na lista
+					Cosmetico cosmetico = new Cosmetico(nomeCosmetico, idCosmetico, precoCosmetico, fragrancia);
+					listaCosmeticos.add(cosmetico);
+					System.out.println("Cosmético cadastrado com sucesso!");
+					break;
+					
+				case 3:
+					// Listar todos os produtos
+					System.out.println("Listando todos os produtos:");
+                    System.out.println("=== Cosméticos ===");
+                    for (Cosmetico c : listaCosmeticos) {
+                        c.visualizar();
+                    }
+                    System.out.println("=== Medicamentos ===");
+                    for (Medicamento m : listaMedicamentos) {
+                        m.visualizar();
+                    }
+                    break;
+					
+				case 0:
+					System.out.println("Saindo do sistema...");
+					break;
+					
+				default:
+					System.out.println("Opção inválida!");
+					break;
+			}
+		}
+		
+		leia.close();
+	}
+}

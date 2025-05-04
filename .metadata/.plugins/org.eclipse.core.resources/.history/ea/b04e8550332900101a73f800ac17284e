@@ -1,0 +1,5 @@
+package farmaciaVirtual.Repository;
+
+public interface ProdutoRepository {
+
+}
